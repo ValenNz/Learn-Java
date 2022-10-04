@@ -1,0 +1,35 @@
+***** PENGERTIAN EXPRESSION *****
+
+- Expression adalah konstruksi dari variabel, operator dan pemanggilan method yang mengevaluasi menjadi sebuah single value
+- Expression adalah core component dari statement
+
+* Source code
+
+  int value;
+  value = 10;
+
+
+***** PENGERTIAN STATMENT *****
+
+- Statement bisa dibilang adalah kalimat lengkap dalam bahasa.
+- Sebuah statement berisikan execution komplit, biasanya diakhiri dengan titik koma
+- Ada beberapa jenis statement :
+          * Assignment expression
+          * Penggunaan ++ dan --
+          * Method invocation
+          * Object creation expression
+
+
+***** PENGERTIAN BLOK *****
+- Block adalah kumpulan statement yang terdiri dari nol atau lebih statement.
+- Block diawali dan diakhiri dengan kurung kurawal { }
+
+{
+System.out.println("Helllow")
+                }
+{
+    .........
+    .............
+    ...............
+}
+

@@ -1,0 +1,88 @@
+package JavaDasar.b_DataType.String;
+
+import java.util.Arrays;
+
+public class Pengenalan {
+    public static void main(String[] args) {
+
+        // membuat String
+        String kataString = "hallo";
+        char[] kataChar = {'h','a','l','l','o'};
+
+        // menampilkan String
+        System.out.println("\n===== SHOWING STRING =====");
+        System.out.println(kataString); // output string
+        System.out.println(Arrays.toString(kataChar)); // output array char ke string
+
+        // mengakses komponen dari String
+        System.out.println("\n===== ACC STRING =====");
+        System.out.println("komponen pertama dari char[] = " + kataChar[3]); // acc komponen string pada char
+        System.out.println("komponen pertama dari String = " + kataString.charAt(3)); // acc komponen pada string
+
+        // merubah komponen dari String
+        System.out.println("\n===== CHANGE KOMPONEN STRING =====");
+        /*
+            - itu tidak bisa...kenapa?, karena string di java itu immutable
+            - immutable adalah tipe data yang nilainya tetap. Tipe data immutable adalah semua tipe data yang termasuk
+            primitive type (string, number, boolean, null, undefined, dan symbol).
+         */
+        kataChar[0] = 'c'; // merubah komponen pada array char
+        System.out.println(Arrays.toString(kataChar)); // output komponen array char
+
+        // kataString[0] = "c"; <---- tidak bisa
+        // kataString.charAt(0) = "c"; <---- tidak bisa
+
+        // kita bisa merubah komponen secara tidak langsung
+
+        printAddress("kataString",kataString); // output method alamat (sebelum diganti)
+        kataString = "c" + kataString.substring(1,5); // merubah komponen pada string (secara tidak langsung)
+        System.out.println(kataString);
+        printAddress("kataString",kataString); // output method alamat (setelah diganti)
+
+
+        // memory dari string (String Pool)
+        System.out.println("\n===== MEMORY FROM STRING =====");
+
+        String str_1 = "hallo";
+        String str_2 = "test";
+        String str_3 = "testing";
+
+
+        printAddress("str_1",str_1);
+        printAddress("str_2",str_2);
+        printAddress("str_3",str_3);
+
+        str_3 = str_3.substring(0,4); // mengambil komponen pada string
+        printAddress("str_3",str_3);
+
+        String str_4 = "callo";
+        printAddress("str_4",str_4);
+
+        kataString = "callo";
+        printAddress("kataString",kataString);
+
+        /*
+         1. String di java itu immutable
+         2. String yang berada di string pool itu akan reuseable(dpt digunakan kembali) , memorynya lebih
+            efisien
+         3. membuat string dengan method baru, maka dia akan ditaro di memory lain bukan di string pool
+        */
+
+
+        // liat lebih dalam
+
+        String a = new String("hallo"); // menaruh memory dihip
+        printAddress("a",a); // tidak mmengambil di string poll
+
+
+    }
+
+    // METHOD ALAMAT DATA
+    private static void printAddress(String nama, String data){ // mengetahui alamat string
+        int address = System.identityHashCode(data);
+        System.out.println(nama + " = " + data + "\t|| address = " + Integer.toHexString(address));
+                                                                            // konverse integer ke hexa
+    }
+
+
+}
